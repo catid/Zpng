@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\zpng.cpp" />
+    <ClCompile Include="..\zstd\cover.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\divsufsort.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\entropy_common.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\error_private.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\fse_compress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\fse_decompress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\huf_compress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\huf_decompress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\pool.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\threading.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\xxhash.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zdict.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstdmt_compress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_common.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_compress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_decompress.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_double_fast.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_fast.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_lazy.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_ldm.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\zstd\zstd_opt.c">
+      <Filter>Zstd</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\zpng.h" />
+    <ClInclude Include="..\zstd\bitstream.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\compiler.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\cpu.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\divsufsort.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\error_private.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\fse.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\huf.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\mem.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\pool.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\threading.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\xxhash.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zdict.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstdmt_compress.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_compress_internal.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_double_fast.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_errors.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_fast.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_internal.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_lazy.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_ldm.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zstd\zstd_opt.h">
+      <Filter>Zstd</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Zstd">
+      <UniqueIdentifier>{084ebdbd-c9d6-4712-b2ef-77849057123b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
