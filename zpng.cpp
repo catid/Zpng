@@ -132,7 +132,7 @@ static void UnpackAndUnfilter(
 #ifdef ENABLE_RGB_COLOR_FILTER
 
 template<>
-static void PackAndFilter<3>(
+void PackAndFilter<3>(
     const ZPNG_ImageData* imageData,
     uint8_t* output
     )
@@ -183,7 +183,7 @@ static void PackAndFilter<3>(
 }
 
 template<>
-static void UnpackAndUnfilter<3>(
+void UnpackAndUnfilter<3>(
     const uint8_t* input,
     ZPNG_ImageData* imageData
     )
@@ -239,7 +239,7 @@ static void UnpackAndUnfilter<3>(
 // Version for RGBA (with alpha):
 
 template<>
-static void PackAndFilter<4>(
+void PackAndFilter<4>(
     const ZPNG_ImageData* imageData,
     uint8_t* output
     )
@@ -295,7 +295,7 @@ static void PackAndFilter<4>(
 }
 
 template<>
-static void UnpackAndUnfilter<4>(
+void UnpackAndUnfilter<4>(
     const uint8_t* input,
     ZPNG_ImageData* imageData
     )
