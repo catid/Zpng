@@ -132,7 +132,7 @@ static void UnpackAndUnfilter(
 #ifdef ENABLE_RGB_COLOR_FILTER
 
 template<>
-static void PackAndFilter<3>(
+void PackAndFilter<3>(
     const ZPNG_ImageData* imageData,
     uint8_t* output
     )
@@ -183,7 +183,7 @@ static void PackAndFilter<3>(
 }
 
 template<>
-static void UnpackAndUnfilter<3>(
+void UnpackAndUnfilter<3>(
     const uint8_t* input,
     ZPNG_ImageData* imageData
     )
@@ -239,7 +239,7 @@ static void UnpackAndUnfilter<3>(
 // Version for RGBA (with alpha):
 
 template<>
-static void PackAndFilter<4>(
+void PackAndFilter<4>(
     const ZPNG_ImageData* imageData,
     uint8_t* output
     )
@@ -295,7 +295,7 @@ static void PackAndFilter<4>(
 }
 
 template<>
-static void UnpackAndUnfilter<4>(
+void UnpackAndUnfilter<4>(
     const uint8_t* input,
     ZPNG_ImageData* imageData
     )
@@ -386,7 +386,12 @@ ZPNG_Buffer ZPNG_Compress(
     packing = (uint8_t*)calloc(1, byteCount);
 
     if (!packing) {
-        goto ReturnResult;
+ReturnResult:
+        if (bufferOutput.Data != output) {
+            free(output);
+        }
+        free(packing);
+        return bufferOutput;
     }
 
     const unsigned maxOutputBytes = (unsigned)ZSTD_compressBound(byteCount);
@@ -453,12 +458,7 @@ ZPNG_Buffer ZPNG_Compress(
     bufferOutput.Data = output;
     bufferOutput.Bytes = ZPNG_HEADER_OVERHEAD_BYTES + (unsigned)result;
 
-ReturnResult:
-    if (bufferOutput.Data != output) {
-        free(output);
-    }
-    free(packing);
-    return bufferOutput;
+    goto ReturnResult;
 }
 
 ZPNG_ImageData ZPNG_Decompress(
@@ -478,7 +478,12 @@ ZPNG_ImageData ZPNG_Decompress(
     imageData.WidthPixels = 0;
 
     if (!buffer.Data || buffer.Bytes < ZPNG_HEADER_OVERHEAD_BYTES) {
-        goto ReturnResult;
+ReturnResult:
+        if (imageData.Buffer.Data != output) {
+            free(output);
+        }
+        free(packing);
+        return imageData;
     }
 
     const ZPNG_Header* header = (const ZPNG_Header*)buffer.Data;
@@ -555,12 +560,7 @@ ZPNG_ImageData ZPNG_Decompress(
         break;
     }
 
-ReturnResult:
-    if (imageData.Buffer.Data != output) {
-        free(output);
-    }
-    free(packing);
-    return imageData;
+    goto ReturnResult;
 }
 
 void ZPNG_Free(
