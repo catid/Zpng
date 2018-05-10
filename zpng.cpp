@@ -386,7 +386,12 @@ ZPNG_Buffer ZPNG_Compress(
     packing = (uint8_t*)calloc(1, byteCount);
 
     if (!packing) {
-        goto ReturnResult;
+ReturnResult:
+        if (bufferOutput.Data != output) {
+            free(output);
+        }
+        free(packing);
+        return bufferOutput;
     }
 
     const unsigned maxOutputBytes = (unsigned)ZSTD_compressBound(byteCount);
@@ -453,12 +458,7 @@ ZPNG_Buffer ZPNG_Compress(
     bufferOutput.Data = output;
     bufferOutput.Bytes = ZPNG_HEADER_OVERHEAD_BYTES + (unsigned)result;
 
-ReturnResult:
-    if (bufferOutput.Data != output) {
-        free(output);
-    }
-    free(packing);
-    return bufferOutput;
+    goto ReturnResult;
 }
 
 ZPNG_ImageData ZPNG_Decompress(
@@ -478,7 +478,12 @@ ZPNG_ImageData ZPNG_Decompress(
     imageData.WidthPixels = 0;
 
     if (!buffer.Data || buffer.Bytes < ZPNG_HEADER_OVERHEAD_BYTES) {
-        goto ReturnResult;
+ReturnResult:
+        if (imageData.Buffer.Data != output) {
+            free(output);
+        }
+        free(packing);
+        return imageData;
     }
 
     const ZPNG_Header* header = (const ZPNG_Header*)buffer.Data;
@@ -555,12 +560,7 @@ ZPNG_ImageData ZPNG_Decompress(
         break;
     }
 
-ReturnResult:
-    if (imageData.Buffer.Data != output) {
-        free(output);
-    }
-    free(packing);
-    return imageData;
+    goto ReturnResult;
 }
 
 void ZPNG_Free(
